@@ -1,4 +1,4 @@
-name: Publish medusa-plugin-redlock
+name: Publish medusa-plugin-product-reviews-client
 
 on:
   workflow_dispatch:
