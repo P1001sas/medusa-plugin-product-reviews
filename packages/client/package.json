@@ -1,5 +1,5 @@
 {
-  "name": "@lambdacurry/medusa-plugin-product-reviews-client",
+  "name": "@p1001/medusa-plugin-product-reviews-client",
   "version": "0.0.10",
   "description": "A plugin that enables customer product reviews for your Medusa store.",
   "author": "Lambda Curry <team@lambdacurry.dev>",
