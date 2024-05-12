@@ -5,6 +5,13 @@
   "author": "Lambda Curry <team@lambdacurry.dev>",
   "license": "MIT",
   "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p1001/medusa-plugin-product-reviews.git"
+  },
   "scripts": {
     "build": "tsc --build",
     "publish-patch": "yarn publish --patch",
@@ -26,7 +33,6 @@
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.2"
   },
-  "repository": "https://github.com/lambda-curry/medusa-plugin-product-reviews",
   "keywords": [
     "sqlite",
     "ecommerce",
