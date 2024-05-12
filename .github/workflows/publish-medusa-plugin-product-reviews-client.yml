@@ -1,0 +1,42 @@
+name: Publish medusa-plugin-redlock
+
+on:
+  workflow_dispatch:
+    inputs:
+      package-version:
+        description: "Version of package to be published"
+        type: string
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./packages/client"
+    permissions:
+      packages: write
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup git user
+        uses: fregante/setup-git-user@v1
+      - name: Setup git user
+        uses: fregante/setup-git-user@v1
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Publish
+        run: yarn publish --new-version ${{ github.event.inputs.package-version }} --access restricted --verbose
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Add tag
+        run: |
+          git tag medusa-plugin-product-reviews-client@${{ github.event.inputs.package-version }}
+          git push origin medusa-plugin-product-reviews-client@${{ github.event.inputs.package-version }}
