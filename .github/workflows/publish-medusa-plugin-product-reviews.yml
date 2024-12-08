@@ -1,4 +1,4 @@
-name: Publish medusa-plugin-product-reviews-client
+name: Publish medusa-plugin-product-reviews
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./packages/client"
+        working-directory: "./packages/plugin"
     permissions:
       packages: write
       contents: write
@@ -38,5 +38,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Add tag
         run: |
-          git tag medusa-plugin-product-reviews-client@${{ github.event.inputs.package-version }}
-          git push origin medusa-plugin-product-reviews-client@${{ github.event.inputs.package-version }}
+          git tag medusa-plugin-product-reviews@${{ github.event.inputs.package-version }}
+          git push origin medusa-plugin-product-reviews@${{ github.event.inputs.package-version }}
